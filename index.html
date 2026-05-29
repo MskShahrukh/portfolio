@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Shahrukh Khan — Senior Full Stack Engineer</title>
+  <meta name="description" content="Senior Full Stack Engineer with 9+ years of experience architecting scalable microservices, SaaS platforms, and AI-accelerated engineering workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg-2: #11121a;
+      --surface: #161823;
+      --surface-2: #1c1f2e;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.16);
+      --text: #e8eaf0;
+      --text-muted: #9097a8;
+      --text-dim: #5a6072;
+      --accent: #7c8cff;
+      --accent-2: #4ade80;
+      --accent-3: #fb7185;
+      --grad: linear-gradient(135deg, #7c8cff 0%, #a78bfa 50%, #fb7185 100%);
+      --grad-text: linear-gradient(135deg, #c4b5fd 0%, #a5b4fc 40%, #93c5fd 100%);
+      --glow: radial-gradient(600px circle at var(--mx, 50%) var(--my, 0%), rgba(124, 140, 255, 0.12), transparent 60%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Background mesh */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 0%, rgba(124, 140, 255, 0.08), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 30%, rgba(167, 139, 250, 0.06), transparent 60%),
+        radial-gradient(ellipse 70% 60% at 50% 100%, rgba(251, 113, 133, 0.05), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle grid */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 18px 0;
+      background: rgba(10, 10, 15, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      padding: 10px 18px;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background: rgba(124, 140, 255, 0.08);
+      border: 1px solid rgba(124, 140, 255, 0.2);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #c4b5fd;
+      margin-bottom: 32px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-2);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--accent-2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 24px;
+    }
+
+    h1 .grad {
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .hero-sub strong { color: var(--text); font-weight: 600; }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 36px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* METRICS */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 80px;
+    }
+
+    @media (max-width: 720px) {
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .metric {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .metric:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .metric:hover::before { opacity: 1; }
+
+    .metric-value {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: var(--grad-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .section-intro {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 56px;
+      line-height: 1.7;
+    }
+
+    /* TECH STACK */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .stack-card {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stack-card:hover {
+      border-color: var(--border-hover);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+
+    .stack-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: rgba(124, 140, 255, 0.1);
+      color: var(--accent);
+    }
+
+    .stack-icon svg { width: 20px; height: 20px; }
+
+    .stack-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 5px 11px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .chip:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: rgba(124, 140, 255, 0.08);
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .exp-item:hover { background: rgba(255, 255, 255, 0.01); }
+
+    .exp-item:last-child { border-bottom: 1px solid var(--border); }
+
+    @media (max-width: 720px) {
+      .exp-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      padding-top: 4px;
+    }
+
+    .exp-content h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .exp-role {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .exp-content ul {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .exp-content li {
+      padding-left: 22px;
+      position: relative;
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 10px;
+      line-height: 1.65;
+    }
+
+    .exp-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 12px;
+      height: 1px;
+      background: var(--text-dim);
+    }
+
+    .exp-content li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    /* HIGHLIGHTS */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .highlight {
+      padding: 32px;
+      background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(124, 140, 255, 0.08), transparent 70%);
+      transition: all 0.5s ease;
+    }
+
+    .highlight:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .highlight:hover::after {
+      transform: scale(1.5);
+    }
+
+    .highlight-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .highlight h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .highlight p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-inner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .contact h2 {
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+
+    .contact-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(124, 140, 255, 0.08);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-link svg { width: 16px; height: 16px; color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Fade-in on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">shahrukh<span>.</span>dev</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="badge">
+        <span class="dot"></span>
+        Open to senior roles • Berlin / Remote (EU)
+      </div>
+
+      <h1>
+        Muhammad<br />
+        Shahrukh Khan<br />
+        <span class="grad">Senior Full Stack Engineer.</span>
+      </h1>
+
+      <p class="hero-sub">
+        I architect <strong>scalable microservices</strong> and <strong>high-performance SaaS platforms</strong> — and I ship faster than most teams expect by weaving <strong>AI-augmented engineering workflows</strong> into every layer of delivery.
+      </p>
+      <p class="hero-sub">
+        9+ years across founding-engineer scale-ups and enterprise platforms. Currently shipping production systems at <strong>CoachHub</strong> in Berlin.
+      </p>
+
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Berlin, Germany
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          9+ years building production systems
+        </div>
+        <div class="hero-meta-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Microservices • Cloud • AI-augmented delivery
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">
+          Let's build something
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#experience" class="btn btn-secondary">
+          View experience
+        </a>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-value">9+</div>
+          <div class="metric-label">Years engineering production-scale systems</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">60→90%</div>
+          <div class="metric-label">Test coverage scaled via AI-assisted workflows</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">−25%</div>
+          <div class="metric-label">Production bug density reduction</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">10→150+</div>
+          <div class="metric-label">Engineering org scaled as founding engineer</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <h2>I bridge complex backend architecture with rapid product delivery.</h2>
+      <p class="section-intro">
+        I've spent the last decade going from founding engineer at early-stage startups to senior IC at hyper-growth enterprises. My specialty is the messy middle — designing the multi-tenant cloud architectures that hold up as organizations 10x, standardizing the engineering hygiene that keeps technical debt in check, and integrating modern AI tooling so teams ship more without burning out. I care about resilient systems, clean abstractions, and outcomes that compound.
+      </p>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="container">
+      <div class="section-label">Technical stack</div>
+      <h2>The tools I use to ship.</h2>
+      <p class="section-intro">A deep, modern toolkit across the full stack — frontend, backend, cloud, and AI-augmented engineering.</p>
+
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <h3>Frontend</h3>
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Angular</span>
+            <span class="chip">Vue.js</span>
+            <span class="chip">Redux</span>
+            <span class="chip">Tailwind</span>
+            <span class="chip">HTML5 / CSS3</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <h3>Backend</h3>
+          <div class="chips">
+            <span class="chip">Node.js</span>
+            <span class="chip">NestJS</span>
+            <span class="chip">Express</span>
+            <span class="chip">GraphQL</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">Microservices</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud & DevOps</h3>
+          <div class="chips">
+            <span class="chip">AWS</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Kafka</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">CI/CD</span>
+            <span class="chip">Linux</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          </div>
+          <h3>Databases & Testing</h3>
+          <div class="chips">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Prisma</span>
+            <span class="chip">Redis</span>
+            <span class="chip">Jest</span>
+            <span class="chip">RTL</span>
+            <span class="chip">Jasmine</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Languages</h3>
+          <div class="chips">
+            <span class="chip">TypeScript</span>
+            <span class="chip">JavaScript (ES6+)</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Postgres</span>
+            <span class="chip">MySQL</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
+          </div>
+          <h3>AI Engineering</h3>
+          <div class="chips">
+            <span class="chip">Claude Code</span>
+            <span class="chip">Gemini</span>
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">AI Test Scaffolding</span>
+            <span class="chip">AI-augmented CI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-label">Experience</div>
+      <h2>Where I've built, shipped, and scaled.</h2>
+      <p class="section-intro">From founding engineer to senior IC — a track record of building systems that hold up under hyper-growth.</p>
+
+      <div class="timeline">
+        <div class="exp-item">
+          <div class="exp-date">2022 — Present</div>
+          <div class="exp-content">
+            <h3>CoachHub</h3>
+            <div class="exp-role">Full Stack Engineer · Berlin, Germany</div>
+            <ul>
+              <li>Engineered and scaled <strong>resilient distributed microservices</strong> using Node.js, NestJS, Kafka, and PostgreSQL for enterprise SaaS products.</li>
+              <li>Leveraged <strong>Gemini</strong> to aggressively scale automated test coverage from <strong>60% to 90%</strong> across mission-critical codebases.</li>
+              <li>Integrated <strong>Gemini and Claude Code</strong> into daily workflows — lowering production bugs by <strong>25%</strong> and accelerating sprint velocity to close <strong>80% of open issues within one week</strong>.</li>
+              <li>Built and optimized <strong>CI/CD infrastructure</strong> via robust GitHub Actions workflows blending automated checks with human-in-the-loop review guardrails.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="chip">Node.js</span>
+              <span class="chip">NestJS</span>
+              <span class="chip">Kafka</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">AI Workflows</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">2019 — 2021</div>
+          <div class="exp-content">
+            <h3>Optimyse</h3>
+            <div class="exp-role">Tribe Lead · Architect · Senior Engineer</div>
+            <ul>
+              <li>Served as <strong>founding engineer</strong> (first 10 employees), establishing core application architectures that sustained organizational growth to <strong>150+ engineers</strong>.</li>
+              <li>Directed cross-functional execution across complex SaaS initiatives — managing distributed engineering teams of <strong>5–10 engineers</strong>.</li>
+              <li>Architected <strong>multi-tenant infrastructures</strong> and cloud configurations powering modern e-commerce and SaaS applications.</li>
+              <li>Championed development hygiene by standardizing code reviews, sprint workflows, and engineering metrics across the department.</li>
+              <li>Shipped high-performance frontend configurations and modular backend libraries — significantly boosting rendering speed and reducing API latency.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="chip">Architecture</span>
+              <span class="chip">Multi-tenant SaaS</span>
+              <span class="chip">Team Leadership</span>
+              <span class="chip">Founding Engineer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">2017 — 2018</div>
+          <div class="exp-content">
+            <h3>Cloudnosys</h3>
+            <div class="exp-role">Software Engineer</div>
+            <ul>
+              <li>Developed clean <strong>RESTful APIs</strong> and modern frontend systems using advanced client-side JavaScript frameworks.</li>
+              <li>Built secure <strong>third-party integrations</strong> and internal features ensuring end-to-end reliability for enterprise-level cloud platforms.</li>
+            </ul>
+            <div class="exp-tags">
+              <span class="chip">REST APIs</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Cloud Security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="highlights">
+    <div class="container">
+      <div class="section-label">AI-Accelerated Engineering</div>
+      <h2>What makes my delivery different.</h2>
+      <p class="section-intro">I treat AI tooling as a first-class part of the engineering workflow — not a novelty. Here's where it compounds.</p>
+
+      <div class="highlights-grid">
+        <div class="highlight">
+          <div class="highlight-num">01 / Production Speedups</div>
+          <h3>Token-aware prompt engineering</h3>
+          <p>Mastered cost-efficient, deterministic workflows with Gemini and Claude Code — collapsing debugging overhead and shipping features in days, not sprints.</p>
+        </div>
+
+        <div class="highlight">
+          <div class="highlight-num">02 / Test Scale</div>
+          <h3>AI-driven test scaffolding</h3>
+          <p>Built generative test infrastructure that compresses validation lifecycles and gets critical paths to 90%+ coverage without ballooning maintenance cost.</p>
+        </div>
+
+        <div class="highlight">
+          <div class="highlight-num">03 / CI/CD Synthesis</div>
+          <h3>AI-augmented review pipelines</h3>
+          <p>Authored custom CI workflows that blend automated AI checks with human-in-the-loop guardrails — keeping velocity high without sacrificing architectural integrity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="section-label" style="justify-content: center; display: inline-flex;">Let's talk</div>
+        <h2>Building something ambitious?</h2>
+        <p class="contact-sub">
+          I'm currently open to senior full-stack and engineering leadership roles in Berlin or remote across the EU. If you're scaling a SaaS platform, shipping a greenfield product, or rebuilding your delivery engine around AI workflows — let's have a conversation.
+        </p>
+
+        <div class="contact-grid">
+          <a href="mailto:mskshahrukh@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            mskshahrukh@gmail.com
+          </a>
+          <a href="tel:+4917620821054" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +49 176 20821054
+          </a>
+          <a href="https://www.linkedin.com/in/mskshahrukh" target="_blank" rel="noopener" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+
+        <a href="mailto:mskshahrukh@gmail.com?subject=Senior%20Engineering%20Opportunity" class="btn btn-primary" style="margin: 0 auto;">
+          Send me an email
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Muhammad Shahrukh Khan · Crafted in Berlin
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .metric, .stack-card, .exp-item, .highlight').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    // Mouse spotlight (subtle)
+    document.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+      document.documentElement.style.setProperty('--my', e.clientY + 'px');
+    });
+  </script>
+</body>
+</html>
